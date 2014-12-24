@@ -3,13 +3,20 @@ package com.example.gridviewapp;
 import android.os.Bundle;
 import android.app.Activity;
 import android.view.Menu;
+import android.widget.GridView;
 
 public class MainActivity extends Activity {
 
-    @Override
+	GridView gridvw;
+	@Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        
+        
+        gridvw = (GridView) findViewById(R.id.grid_view);
+        gridvw.setAdapter(new ImageAdapter(MainActivity.this));
+        
     }
 
 
