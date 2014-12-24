@@ -2,7 +2,11 @@ package com.example.gridviewapp;
 
 import android.os.Bundle;
 import android.app.Activity;
+import android.content.Intent;
 import android.view.Menu;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.GridView;
 
 public class MainActivity extends Activity {
@@ -16,6 +20,17 @@ public class MainActivity extends Activity {
         
         gridvw = (GridView) findViewById(R.id.grid_view);
         gridvw.setAdapter(new ImageAdapter(MainActivity.this));
+        
+        gridvw.setOnItemClickListener(new OnItemClickListener() {
+
+			@Override
+			public void onItemClick(AdapterView<?> paView, View v, int position,
+					long id) {
+				Intent intent = new Intent(MainActivity.this,SingleViewActivity.class);
+				intent.putExtra("id", position);
+				startActivity(intent);
+			}
+		});
         
     }
 
